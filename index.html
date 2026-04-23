@@ -1,432 +1,446 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Punta Perla Pacífico — Executive Web Deck</title>
-  <meta name="description" content="Punta Perla Pacífico — Smart City & Free Zone | Costa Rica. Institutional-grade PPP development platform." />
+  <meta name="description" content="Punta Perla Pacífico – Smart City, Forest City & Free Zone | Costa Rica." />
+
   <style>
     :root{
-      --bg:#070A12;
-      --panel:#0B1020;
-      --panel2:#0B1328;
-      --text:#EAF0FF;
-      --muted:#A7B0C7;
-      --muted2:#7E88A3;
-      --line:rgba(255,255,255,.08);
-      --accent:#7C5CFF;
-      --accent2:#22D3EE;
-      --glow: 0 0 60px rgba(124,92,255,.25);
-      --radius:18px;
-      --max:1120px;
+      --navy:#0b1b3a;
+      --navy2:#1c2e57;
+      --text:#10234d;
+      --muted:#5f6f8f;
+      --line:#e6ecf5;
+      --bg:#ffffff;
+      --teal:#20c7c9;
+      --soft:#f6f9ff;
+      --shadow:0 18px 50px rgba(13,28,60,.08);
+      --radius:22px;
+      --max:1140px;
     }
+
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 70% 10%, rgba(124,92,255,.18), transparent 60%),
-                  radial-gradient(900px 600px at 20% 30%, rgba(34,211,238,.14), transparent 55%),
-                  var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
-      letter-spacing:-0.01em;
+      background:var(--bg);
+      line-height:1.35;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
-    .nav{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(7,10,18,.78), rgba(7,10,18,.35));
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+    /* ================= HEADER ================= */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .navin{
-      display:flex; align-items:center; justify-content:space-between;
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       padding:14px 0;
+      gap:20px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
       letter-spacing:-.02em;
+      color:var(--navy);
     }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: var(--glow);
-    }
-    .links{display:flex; gap:18px; color:var(--muted); font-size:14px}
-    .links a{padding:8px 10px; border-radius:12px}
-    .links a:hover{background:rgba(255,255,255,.04); color:var(--text)}
-    .cta{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      background: linear-gradient(135deg, rgba(124,92,255,.24), rgba(34,211,238,.14));
-      border:1px solid rgba(124,92,255,.35);
-      box-shadow: var(--glow);
-      font-weight:600;
-      font-size:14px;
-    }
-    .hero{padding:64px 0 26px}
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-size:13px;
-    }
-    h1{
-      margin:18px 0 0;
-      font-size: clamp(40px, 6vw, 64px);
-      line-height:1.02;
-      letter-spacing:-.04em;
-    }
-    .sub{
-      margin:16px 0 0;
-      max-width:780px;
-      color:var(--muted);
-      font-size: clamp(16px, 2vw, 18px);
-      line-height:1.55;
-    }
-    .heroGrid{
-      margin-top:28px;
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
+    .brand img{height:34px}
+    nav{
+      display:flex;
       gap:18px;
-    }
-    @media (max-width: 980px){
-      .heroGrid{grid-template-columns:1fr}
-      .links{display:none}
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      padding:18px;
-    }
-    .card h3{margin:0 0 8px; font-size:14px; color:var(--muted)}
-    .bigMetric{
-      font-size:28px; font-weight:800; letter-spacing:-.03em;
-      margin:4px 0 2px;
-    }
-    .metricNote{color:var(--muted2); font-size:13px; line-height:1.45}
-    .metrics{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 700px){
-      .metrics{grid-template-columns:1fr}
-    }
-    .section{padding:54px 0}
-    .sectionHead{
-      display:flex; justify-content:space-between; align-items:flex-end; gap:18px;
-      margin-bottom:18px;
-    }
-    .sectionHead h2{
-      margin:0;
-      font-size:28px;
-      letter-spacing:-.03em;
-    }
-    .sectionHead p{
-      margin:0;
       color:var(--muted);
-      max-width:560px;
-      line-height:1.5;
       font-size:14px;
     }
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    @media (max-width: 900px){.grid2{grid-template-columns:1fr}}
-    .pillRow{display:flex; flex-wrap:wrap; gap:10px}
-    .pill{
-      font-size:13px; color:var(--muted);
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      padding:10px 12px;
+    nav a:hover{text-decoration:underline}
+    .cta{
+      padding:10px 16px;
       border-radius:999px;
+      background:rgba(32,199,201,.15);
+      border:1px solid rgba(32,199,201,.35);
+      font-weight:700;
+      font-size:14px;
+      white-space:nowrap;
     }
+
+    /* ================= HERO ================= */
+    .hero{padding:36px 0}
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:40px;
+      align-items:center;
+    }
+    .heroImg{
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:440px;
+      clip-path:polygon(0 0,90% 0,100% 18%,100% 100%,0 100%);
+      background:#e5edff;
+    }
+    .heroImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .heroTxt span{
+      display:inline-block;
+      margin-bottom:14px;
+    }
+    .heroTxt h1{
+      margin:0;
+      font-size:clamp(40px,5vw,60px);
+      letter-spacing:-.03em;
+      line-height:1.05;
+      color:var(--navy);
+    }
+    .heroTxt p{
+      margin-top:14px;
+      font-size:18px;
+      color:var(--muted);
+      max-width:520px;
+    }
+
+    /* ================= SECTIONS ================= */
+    section{padding:56px 0}
+    h2{
+      font-size:clamp(34px,4vw,52px);
+      margin:0 0 18px;
+      letter-spacing:-.03em;
+      color:var(--navy);
+    }
+    .lead{
+      color:var(--muted);
+      max-width:780px;
+      margin-bottom:30px;
+      font-size:16px;
+    }
+
+    /* ================= VISION (PYRAMID CONCEPT) ================= */
+    .visionGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:36px;
+      align-items:center;
+    }
+    .visionBox{
+      border-radius:var(--radius);
+      background:var(--soft);
+      border:1px solid var(--line);
+      padding:26px;
+    }
+    .visionItem{
+      display:grid;
+      grid-template-columns:46px 1fr;
+      gap:16px;
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .visionItem:last-child{border-bottom:none}
+    .icon{
+      width:46px;height:46px;
+      border-radius:16px;
+      background:rgba(32,199,201,.15);
+      border:1px solid rgba(32,199,201,.3);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+    }
+    .visionItem b{
+      font-size:18px;
+    }
+    .visionItem span{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+    }
+
+    /* ================= MAP ================= */
+    .map{
+      position:relative;
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+      min-height:460px;
+    }
+    .map img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .mapOverlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(9,35,55,.7),rgba(9,35,55,.2),transparent);
+    }
+    .mapText{
+      position:absolute;
+      right:0;
+      top:0;
+      bottom:0;
+      display:flex;
+      align-items:center;
+      text-align:right;
+      padding:36px;
+      color:#fff;
+      max-width:720px;
+    }
+    .mapText h3{
+      font-size:clamp(36px,5vw,64px);
+      margin:0;
+      letter-spacing:-.03em;
+      line-height:1.02;
+    }
+    .mapText h3 em{
+      font-style:normal;
+      color:var(--teal);
+    }
+    .mapText p{
+      margin-top:14px;
+      font-size:16px;
+      opacity:.9;
+    }
+
+    /* ================= LISTS ================= */
     .list{
-      margin:0; padding:0; list-style:none;
-      display:grid; gap:10px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
-    }
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.06);
-      background: rgba(11,16,32,.35);
-    }
-    .check{
-      width:18px; height:18px; border-radius:6px;
-      background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(34,211,238,.75));
-      box-shadow: var(--glow);
-      flex: 0 0 auto;
-      margin-top:2px;
-    }
-    .split{
-      display:grid; grid-template-columns: 1fr 1fr; gap:18px;
-    }
-    @media (max-width: 900px){.split{grid-template-columns:1fr}}
-    .footer{
-      padding:44px 0 60px;
       border-top:1px solid var(--line);
+    }
+    .item{
+      display:grid;
+      grid-template-columns:46px 1fr;
+      gap:16px;
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .item b{font-size:18px}
+    .item span{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:40px 0 56px;
       color:var(--muted);
       font-size:14px;
     }
-    .fadeIn{
-      opacity:0; transform: translateY(8px);
-      animation: in .7s ease forwards;
+
+    @media(max-width:980px){
+      .heroGrid,
+      .visionGrid{grid-template-columns:1fr}
+      nav{display:none}
     }
-    .fadeIn.d2{animation-delay:.08s}
-    .fadeIn.d3{animation-delay:.16s}
-    .fadeIn.d4{animation-delay:.24s}
-    @keyframes in{to{opacity:1; transform:none}}
   </style>
 </head>
 
 <body>
-  <header class="nav">
-    <div class="wrap navin">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>Punta Perla Pacífico</span>
-      </div>
-      <nav class="links" aria-label="Sections">
-        <a href="#vision">Vision</a>
-        <a href="#anchors">Anchors</a>
-        <a href="#smart">Smart City</a>
-        <a href="#impact">Impact</a>
-        <a href="#status">Status</a>
-      </nav>
-      <a class="cta" href="#contact">Contact <span style="opacity:.7">→</span></a>
+
+<header>
+  <div class="wrap top">
+    <div class="brand">
+      <img src="images/logo.png" alt="Punta Perla Pacífico logo" />
+      <span>Punta Perla Pacífico</span>
     </div>
-  </header>
+    <nav>
+      <a href="#vision">Visión</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#anclas">Anclas</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="cta" href="#contacto">Solicitar material</a>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="kicker fadeIn">
-          <span style="width:7px;height:7px;border-radius:999px;background:rgba(34,211,238,.9);display:inline-block"></span>
-          Institutional PPP Development Platform · Costa Rica
-        </div>
+<main class="wrap hero">
+  <div class="heroGrid">
+    <div class="heroImg">
+      <img src="images/hero.png" alt="Punta Perla Pacífico" />
+    </div>
+    <div class="heroTxt">
+      <span class="cta">PPP · Smart City · Free Zone</span>
+      <h1>Punta Perla Pacífico</h1>
+      <p>
+        Plataforma integral de desarrollo que combina Forest City, Industrial Free Zone,
+        logística, educación, salud, energía y turismo en Costa Rica.
+      </p>
+    </div>
+  </div>
+</main>
 
-        <h1 class="fadeIn d2">Smart City & Free Zone<br/>built for long-term scale.</h1>
-
-        <p class="sub fadeIn d3">
-          Punta Perla Pacífico is a large-scale Public–Private Partnership designed to transform the Pacific region through
-          logistics, sustainability, innovation, and inclusive growth.
-        </p>
-
-        <div class="heroGrid">
-          <div class="card fadeIn d4">
-            <h3>Investment thesis</h3>
-            <div class="bigMetric">2,700+ ha</div>
-            <div class="metricNote">Core Economic Area. Phased development designed for institutional structuring.</div>
-
-            <div class="metrics">
-              <div class="card" style="padding:14px;background:rgba(255,255,255,.02)">
-                <h3 style="margin:0;color:var(--muted)">Platform</h3>
-                <div style="font-weight:700;margin-top:6px">Free Zone + Logistics</div>
-                <div class="metricNote">Industrial & SME park, trade enablement.</div>
-              </div>
-              <div class="card" style="padding:14px;background:rgba(255,255,255,.02)">
-                <h3 style="margin:0;color:var(--muted)">Regeneration</h3>
-                <div style="font-weight:700;margin-top:6px">Forest City</div>
-                <div class="metricNote">Land-use shift & restoration.</div>
-              </div>
-              <div class="card" style="padding:14px;background:rgba(255,255,255,.02)">
-                <h3 style="margin:0;color:var(--muted)">Human Capital</h3>
-                <div style="font-weight:700;margin-top:6px">Education Cluster</div>
-                <div class="metricNote">Upskilling & cross-university campus.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card fadeIn d4" style="background:linear-gradient(180deg, rgba(124,92,255,.14), rgba(255,255,255,.02)); border-color:rgba(124,92,255,.25)">
-            <h3>Quick overview</h3>
-            <ul class="list">
-              <li><span class="check"></span><span><b>Strategic Pacific access</b><br/>Multimodal connectivity and export potential.</span></li>
-              <li><span class="check"></span><span><b>Anchor-led growth</b><br/>Free Zone, logistics, energy, health, tourism.</span></li>
-              <li><span class="check"></span><span><b>Smart infrastructure</b><br/>Data, AI, mobility, energy efficiency.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="vision" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Vision</h2>
-          <p>Integrated development model combining economic engines with sustainability and social mobility.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>What it is</h3>
-            <p class="metricNote" style="font-size:14px">
-              An integrated Smart City combining a Free Zone, logistics platform, forest city transformation,
-              education, healthcare, renewable energy, and tourism infrastructure.
-            </p>
-            <div class="pillRow" style="margin-top:14px">
-              <span class="pill">PPP Structuring</span>
-              <span class="pill">Institutional Capital Fit</span>
-              <span class="pill">Long-term Phasing</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Why it matters</h3>
-            <ul class="list">
-              <li><span class="check"></span><span>Creates an <b>economic core</b> for the region with scalable anchors.</span></li>
-              <li><span class="check"></span><span>Enables <b>trade competitiveness</b> and logistics performance.</span></li>
-              <li><span class="check"></span><span>Delivers <b>ESG-aligned</b> regeneration and social infrastructure.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="anchors" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Development Anchors</h2>
-          <p>Anchor-driven portfolio designed to unlock staged investment and operational partnerships.</p>
-        </div>
-
-        <div class="split">
-          <div class="card">
-            <h3>Industrial & Logistics</h3>
-            <ul class="list">
-              <li><span class="check"></span><span>Industrial Free Zone & SME Industrial Park</span></li>
-              <li><span class="check"></span><span>Logistics platform & connectivity enablers</span></li>
-              <li><span class="check"></span><span>Fishing logistics center and processing</span></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Social & Sustainable Infrastructure</h3>
-            <ul class="list">
-              <li><span class="check"></span><span>International education center & cross-university campus</span></li>
-              <li><span class="check"></span><span>General & specialized healthcare (medical tourism)</span></li>
-              <li><span class="check"></span><span>Renewable energy and smart utilities</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="smart" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Smart City Core</h2>
-          <p>Citizen-centric systems: data, mobility, energy and governance with scalable digital infrastructure.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>Systems</h3>
-            <div class="pillRow">
-              <span class="pill">Mobility & eMobility</span>
-              <span class="pill">Smart Grids</span>
-              <span class="pill">Smart Metering</span>
-              <span class="pill">AI & Big Data</span>
-              <span class="pill">IoT Sensors</span>
-              <span class="pill">Smart Buildings</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Operating model</h3>
-            <ul class="list">
-              <li><span class="check"></span><span>Real-time data collection for operational excellence.</span></li>
-              <li><span class="check"></span><span>Interconnected networks with bi-directional data flows.</span></li>
-              <li><span class="check"></span><span>Digital governance and service transparency.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="impact" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Economic & Social Impact</h2>
-          <p>Institutional outcomes: jobs, productivity, human capital formation, and environmental regeneration.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>Impact areas</h3>
-            <ul class="list">
-              <li><span class="check"></span><span>Employment generation & upskilling pipelines.</span></li>
-              <li><span class="check"></span><span>Regional economic diversification and trade enablement.</span></li>
-              <li><span class="check"></span><span>Environmental restoration through forest city transformation.</span></li>
-              <li><span class="check"></span><span>Alignment with ESG/SDG mandates and long-term resilience.</span></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Scale context</h3>
-            <p class="metricNote" style="font-size:14px">
-              Designed as a phased platform enabling multiple operators and financing structures
-              across industrial, logistics, education, health and tourism components.
-            </p>
-            <div style="margin-top:14px;border-top:1px solid var(--line);padding-top:14px;display:flex;gap:14px;flex-wrap:wrap">
-              <span class="pill">Public–Private Partnerships</span>
-              <span class="pill">Operator Concessions</span>
-              <span class="pill">Blended Finance Ready</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="status" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Project Status</h2>
-          <p>Positioned for investor conversations and institutional structuring workflows.</p>
-        </div>
-
-        <div class="card" style="display:flex; justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap">
+<section id="vision">
+  <div class="wrap">
+    <h2>Una Visión a Largo Plazo</h2>
+    <p class="lead">
+      Desarrollo estructurado para catalizar inversión, sostenibilidad y crecimiento regional.
+    </p>
+    <div class="visionGrid">
+      <div class="visionBox">
+        <div class="visionItem">
+          <div class="icon">🌿</div>
           <div>
-            <h3>PPP stage</h3>
-            <div class="bigMetric" style="margin-top:8px">Advanced Structuring</div>
-            <div class="metricNote">Public–Private Partnership (PPP) — ready for engagement with operators and capital partners.</div>
+            <b>Forest City</b>
+            <span>Regeneración ambiental, parques, lagos y desarrollo urbano sostenible.</span>
           </div>
-          <a class="cta" href="#contact">Request materials <span style="opacity:.7">→</span></a>
+        </div>
+        <div class="visionItem">
+          <div class="icon">🏭</div>
+          <div>
+            <b>Industrial Free Zone</b>
+            <span>Parque industrial, logística y clústeres de inversión estratégica.</span>
+          </div>
+        </div>
+        <div class="visionItem">
+          <div class="icon">🎓</div>
+          <div>
+            <b>Educación y Salud</b>
+            <span>Centro educativo internacional y servicios médicos especializados.</span>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Contact</h2>
-          <p>For investor / partnership conversations and project materials.</p>
+      <div class="visionBox">
+        <div class="visionItem">
+          <div class="icon">🌍</div>
+          <div>
+            <b>Smart City</b>
+            <span>Datos, movilidad, energía inteligente y gobernanza digital.</span>
+          </div>
         </div>
+        <div class="visionItem">
+          <div class="icon">⚓</div>
+          <div>
+            <b>Logística y Comercio</b>
+            <span>Conectividad, puertos, comercio internacional y zonas francas.</span>
+          </div>
+        </div>
+        <div class="visionItem">
+          <div class="icon">💼</div>
+          <div>
+            <b>Entorno de Inversión</b>
+            <span>Modelo APP, ventanilla única y respaldo institucional.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="card">
-          <p style="margin:0; color:var(--muted)">
-            <b>Mauricio Dobles</b><br/>
-            <span style="color:var(--muted2)">Punta Perla Pacífico</span>
+<section id="mapa">
+  <div class="wrap">
+    <h2>Geographical Zone Overview</h2>
+    <p class="lead">
+      Ubicación estratégica y área núcleo del desarrollo Punta Perla Pacífico.
+    </p>
+    <div class="map">
+      <img src="images/map.png" alt="Mapa del proyecto" />
+      <div class="mapOverlay"></div>
+      <div class="mapText">
+        <div>
+          <h3>Plataforma de desarrollo <em>multi‑ancla</em></h3>
+          <p>
+            Integrando industria, logística, educación, salud y turismo bajo un modelo PPP.
           </p>
-          <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap">
-            <a class="cta" href="mailto:mdoblesm@puntaperlapacifico.com">Email <span style="opacity:.7">→</span></a>
-            <a class="cta" href="#vision" style="background:rgba(255,255,255,.04); border-color:var(--line); box-shadow:none">Back to top ↑</a>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer">
-      <div class="wrap">
-        © Punta Perla Pacífico — All rights reserved.
+<section id="anclas">
+  <div class="wrap">
+    <h2>Development Anchors</h2>
+    <p class="lead">
+      Componentes clave del master plan y motores de crecimiento económico.
+    </p>
+    <div class="list">
+      <div class="item">
+        <div class="icon">🏭</div>
+        <div>
+          <b>Industrial & Logistics Park</b>
+          <span>Zona Franca, parque industrial, logística para PYMEs y energía solar.</span>
+        </div>
       </div>
-    </footer>
-  </main>
+      <div class="item">
+        <div class="icon">🩺</div>
+        <div>
+          <b>Health & Wellness</b>
+          <span>Servicios médicos generales y especializados, turismo médico.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon">🏖️</div>
+        <div>
+          <b>Tourism & Eco‑Adventure</b>
+          <span>Parques, recreación, comercio y turismo sostenible.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="objetivos">
+  <div class="wrap">
+    <h2>Objetivos Estratégicos</h2>
+    <p class="lead">
+      Lineamientos para ejecutar el proyecto bajo estándares institucionales y ESG.
+    </p>
+    <div class="list">
+      <div class="item">
+        <div class="icon">🔗</div>
+        <div>
+          <b>Integración regional</b>
+          <span>Conectividad logística, económica y social.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon">♻️</div>
+        <div>
+          <b>Sostenibilidad</b>
+          <span>Movilidad limpia, energía renovable y ciudad verde.</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon">💼</div>
+        <div>
+          <b>Atracción de inversión</b>
+          <span>Esquemas APP con respaldo institucional y multilateral.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <h2>Contacto</h2>
+    <p class="lead">
+      Para información adicional y material del proyecto.
+    </p>
+    <strong>Mauricio Dobles M.</strong><br />
+    <a class="cta" href="mailto:mdoblesm@puntaperlapacifico.com">
+      mdoblesm@puntaperlapacifico.com
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © Punta Perla Pacífico — Executive Web Deck
+  </div>
+</footer>
+
 </body>
 </html>
