@@ -27,8 +27,11 @@
       background:var(--bg);
       line-height:1.45;
     }
-    a{color:inherit;text-decoration:none}
+
+    img{display:block;max-width:100%}
+
     .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+    a{color:inherit;text-decoration:none}
 
     /* HEADER */
     header{
@@ -38,17 +41,27 @@
       border-bottom:1px solid var(--line);
     }
     .top{
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       padding:18px 0;
       gap:20px;
     }
     .brand{
-      display:flex;align-items:center;gap:14px;
-      font-weight:800;letter-spacing:-.02em;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:800;
+      letter-spacing:-.02em;
       color:var(--navy);
     }
-    .brand img{height:68px;} /* LOGO DOBLE */
-    nav{display:flex;gap:22px;color:var(--muted);font-size:15px}
+    .brand img{height:68px}
+    nav{
+      display:flex;
+      gap:22px;
+      color:var(--muted);
+      font-size:15px;
+    }
     nav a:hover{text-decoration:underline}
 
     /* HERO */
@@ -67,7 +80,11 @@
       clip-path:polygon(0 0,90% 0,100% 18%,100% 100%,0 100%);
       background:#e5edff;
     }
-    .heroImg img{width:100%;height:100%;object-fit:cover}
+    .heroImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
     .heroTxt h1{
       margin:0;
       font-size:clamp(44px,5.4vw,64px);
@@ -92,18 +109,19 @@
     .lead{
       color:var(--muted);
       max-width:900px;
-      margin-bottom:40px;
+      margin-bottom:36px;
       font-size:17px;
     }
 
-    /* GENERIC BLOCKS */
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+
     .box{
       background:var(--soft);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:30px;
     }
+
     .item{
       display:grid;
       grid-template-columns:48px 1fr;
@@ -117,38 +135,27 @@
       border-radius:16px;
       background:rgba(32,199,201,.15);
       border:1px solid rgba(32,199,201,.35);
-      display:flex;align-items:center;justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-size:22px;
     }
     .item b{font-size:19px}
     .item span{display:block;margin-top:6px;color:var(--muted)}
 
-    /* MAP / LARGE IMAGE FRAME (reusable) */
+    /* FRAME (mapa, vision, closing) */
     .frame{
+      margin-top:28px;
       border-radius:26px;
       overflow:hidden;
       box-shadow:var(--shadow);
       border:1px solid var(--line);
-      min-height:520px;   /* tamaño tipo mapa */
-      background:#e5edff;
+      min-height:520px;
     }
     .frame img{
       width:100%;
       height:100%;
       object-fit:cover;
-      display:block;
-    }
-
-    /* Smaller large image frame for vision (can be slightly shorter if desired) */
-    .frameVision{
-      min-height:520px; /* lo dejamos igual “map-size” para consistencia tipo faster */
-    }
-
-    /* CONTACT */
-    .contact a{
-      color:var(--navy);
-      text-decoration:underline;
-      text-underline-offset:3px;
     }
 
     footer{
@@ -170,7 +177,7 @@
 <header>
   <div class="wrap top">
     <div class="brand">
-      <img src="logo.png" alt="Punta Perla Pacífico logo" />
+      <img src="logo.png" alt="Punta Perla Pacífico">
       <span>Punta Perla Pacífico</span>
     </div>
     <nav>
@@ -186,7 +193,7 @@
 <main class="wrap hero">
   <div class="heroGrid">
     <div class="heroImg">
-      <img src="hero.png" alt="Hero Punta Perla Pacífico" />
+      <img src="hero.png" alt="Punta Perla Pacífico Hero">
     </div>
     <div class="heroTxt">
       <h1>Punta Perla Pacífico</h1>
@@ -208,9 +215,8 @@
       económico y social de largo alcance.
     </p>
 
-    <!-- ✅ IMAGEN NUEVA: debajo del párrafo de Una Visión y antes de Smart City -->
-    <div class="frame frameVision" aria-label="Visión — Render">
-      <img src="vision.png" alt="Render de visión Punta Perla Pacífico" />
+    <div class="frame">
+      <img src="vision.png" alt="Visión Punta Perla Pacífico">
     </div>
   </div>
 </section>
@@ -227,15 +233,15 @@
     <div class="grid2">
       <div class="box">
         <div class="item"><div class="icon">🚶</div><div><b>Movilidad</b><span>Ciudad caminable, transporte público y e‑Mobility.</span></div></div>
-        <div class="item"><div class="icon">⚡</div><div><b>Energía</b><span>Redes inteligentes, energías renovables y eficiencia energética.</span></div></div>
-        <div class="item"><div class="icon">🏢</div><div><b>Smart Buildings</b><span>Edificaciones domóticas con integración ambiental.</span></div></div>
-        <div class="item"><div class="icon">💧</div><div><b>Agua y Residuos</b><span>Gestión inteligente del agua y tratamiento de residuos.</span></div></div>
+        <div class="item"><div class="icon">⚡</div><div><b>Energía</b><span>Redes inteligentes y energías renovables.</span></div></div>
+        <div class="item"><div class="icon">🏢</div><div><b>Smart Buildings</b><span>Edificaciones eficientes y conectadas.</span></div></div>
+        <div class="item"><div class="icon">💧</div><div><b>Agua y Residuos</b><span>Gestión inteligente del agua y residuos.</span></div></div>
       </div>
 
       <div class="box">
         <div class="item"><div class="icon">👥</div><div><b>Ciudadanos</b><span>Participación ciudadana y servicios digitales.</span></div></div>
-        <div class="item"><div class="icon">📡</div><div><b>Datos & ICT</b><span>IoT, Smart Sensors, Big Data, Inteligencia Artificial y 5G.</span></div></div>
-        <div class="item"><div class="icon">🧠</div><div><b>Gestión</b><span>Monitoreo en tiempo real y toma de decisiones informada.</span></div></div>
+        <div class="item"><div class="icon">📡</div><div><b>Datos & ICT</b><span>IoT, sensores, Big Data, AI y 5G.</span></div></div>
+        <div class="item"><div class="icon">🧠</div><div><b>Gestión</b><span>Toma de decisiones en tiempo real.</span></div></div>
       </div>
     </div>
   </div>
@@ -252,18 +258,16 @@
     <div class="grid2">
       <div class="box">
         <h3>Economic Area 1</h3>
-        <div class="item"><div class="icon">🏭</div><div><b>Industrial Free Zone</b><span>Zona franca, parque industrial y logística.</span></div></div>
-        <div class="item"><div class="icon">🎓</div><div><b>Educación</b><span>Centro educativo internacional y campus universitario.</span></div></div>
-        <div class="item"><div class="icon">🩺</div><div><b>Salud</b><span>Turismo médico y wellness living center.</span></div></div>
-        <div class="item"><div class="icon">💼</div><div><b>Entorno de Negocios</b><span>Ventanilla única para inversión y comercio.</span></div></div>
+        <div class="item"><div class="icon">🏭</div><div><b>Industrial Free Zone</b><span>Zona franca e industria.</span></div></div>
+        <div class="item"><div class="icon">🎓</div><div><b>Educación</b><span>Centro educativo internacional.</span></div></div>
+        <div class="item"><div class="icon">🩺</div><div><b>Salud</b><span>Turismo médico y wellness.</span></div></div>
       </div>
 
       <div class="box">
         <h3>Economic Area 2</h3>
-        <div class="item"><div class="icon">🌳</div><div><b>Forest City</b><span>Regeneración ambiental, vivienda y servicios.</span></div></div>
-        <div class="item"><div class="icon">🏖️</div><div><b>Turismo y Ocio</b><span>Hoteles, comercios, playa artificial y restaurantes.</span></div></div>
-        <div class="item"><div class="icon">⚓</div><div><b>Pesca y Muelle</b><span>Centro logístico pesquero y muelle turístico.</span></div></div>
-        <div class="item"><div class="icon">🌊</div><div><b>Eco‑Adventure</b><span>Parques y expansión de zonas de conservación.</span></div></div>
+        <div class="item"><div class="icon">🌳</div><div><b>Forest City</b><span>Regeneración ambiental y vivienda.</span></div></div>
+        <div class="item"><div class="icon">🏖️</div><div><b>Turismo y Ocio</b><span>Playa, hoteles y comercio.</span></div></div>
+        <div class="item"><div class="icon">⚓</div><div><b>Pesca y Muelle</b><span>Actividad pesquera y turismo.</span></div></div>
       </div>
     </div>
   </div>
@@ -272,21 +276,30 @@
 <section id="mapa">
   <div class="wrap">
     <h2>Geographical Zone Overview</h2>
-
-    <!-- ✅ MAPA SIN TEXTO ENCIMA -->
-    <div class="frame" aria-label="Mapa">
-      <img src="map.png" alt="Mapa Geographical Zone Overview" />
+    <div class="frame">
+      <img src="map.png" alt="Mapa Punta Perla Pacífico">
     </div>
   </div>
 </section>
 
 <section id="contacto">
-  <div class="wrap contact">
+  <div class="wrap">
     <h2>Contacto</h2>
     <p class="lead">Para información adicional y material del proyecto.</p>
-
-    <strong>Mauricio Dobles M.</strong><br/>
+    <strong>Mauricio Dobles M.</strong><br>
     <a href="mailto:mdoblesm@puntaperlapacifico.com">mdoblesm@puntaperlapacifico.com</a>
 
-    <!-- ✅ IMAGEN NUEVA AL FINAL: debajo del correo, mismo tamaño que el mapa -->
-    <div style="margin-top:28px" class="frame" aria-label="Cierre institucional">
+    <div class="frame">
+      <img src="closing.png" alt="Punta Perla Pacífico – Cierre institucional">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © Punta Perla Pacífico — Executive Web Deck
+  </div>
+</footer>
+
+</body>
+</html>
